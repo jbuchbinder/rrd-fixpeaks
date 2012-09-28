@@ -2,6 +2,8 @@
 
 * Homepage: https://github.com/jbuchbinder/rrd-fixpeaks
 * Twitter: [@jbuchbinder](https://twitter.com/jbuchbinder)
+* [![Build
+Status](https://secure.travis-ci.org/jbuchbinder/rrd-fixpeaks.png)](http://travis-ci.org/jbuchbinder/rrd-fixpeaks)
 
 ## USAGE
 
