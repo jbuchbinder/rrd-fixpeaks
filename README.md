@@ -7,6 +7,7 @@
 
 ```
 rrd-fixpeaks -threshold=80 RRDFILE.rrd
+rrd-fixpeaks -absabove=1e10 RRDFILE.rrd
 ```
 
 ## BUILDING

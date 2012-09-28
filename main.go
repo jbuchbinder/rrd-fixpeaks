@@ -17,13 +17,14 @@ var (
 	threshold  = flag.Float64("threshold", 0, "Threshold percentage above avg above which values should be clipped")
 	multiplier = flag.Float64("multiplier", 2, "Factor which max must outstrip average")
 	minDiff    = flag.Float64("mindiff", 0, "Minimum difference above average")
+	absAbove   = flag.Float64("absabove", -1, "If not -1, every value above this will be removed")
 )
 
 func main() {
 	flag.Parse()
 
 	if len(flag.Args()) < 1 {
-		fmt.Println("Usage: rrd-fixpeaks -threshold=80 -mindiff=10 -multiplier=1 RRDFILE.rrd")
+		fmt.Println("Usage: rrd-fixpeaks -threshold=80 -mindiff=10 -multiplier=1 -absabove=-1 RRDFILE.rrd")
 		return
 	}
 	rrdfiles := flag.Args()
@@ -97,6 +98,9 @@ func main() {
 					}
 					// Stop div by zero
 					if v > 0 {
+						if *absAbove > -1 && v > *absAbove {
+							modify = true
+						}
 						if v > rT[l] {
 							if *minDiff == 0 || math.Abs(v-rAvg[l]) > *minDiff {
 								if *multiplier == 0 || *multiplier <= 1 || allMax/v >= *multiplier {
