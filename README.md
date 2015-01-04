@@ -4,6 +4,7 @@
 * Twitter: [@jbuchbinder](https://twitter.com/jbuchbinder)
 * [![Build
 Status](https://secure.travis-ci.org/jbuchbinder/rrd-fixpeaks.png)](http://travis-ci.org/jbuchbinder/rrd-fixpeaks)
+* [![Gobuild Download](http://gobuild.io/badge/github.com/jbuchbinder/rrd-fixpeaks/downloads.svg)](http://gobuild.io/github.com/jbuchbinder/rrd-fixpeaks)
 
 ## USAGE
 
