@@ -13,6 +13,7 @@ import (
 )
 
 var (
+	rrdtool    = flag.String("rrdtool", "rrdtool", "Path to rrdtool executable")
 	dryRun     = flag.Bool("dryrun", false, "Dry run flag (don't write)")
 	threshold  = flag.Float64("threshold", 0, "Threshold percentage above avg above which values should be clipped")
 	multiplier = flag.Float64("multiplier", 2, "Factor which max must outstrip average")
@@ -140,7 +141,7 @@ func rrdInfo(file string, rrd Rrd) {
 }
 
 func dumpXml(file string) []byte {
-	out, err := exec.Command("rrdtool", "dump", file).Output()
+	out, err := exec.Command(*rrdtool, "dump", file).Output()
 	if err != nil {
 		panic(err)
 	}
@@ -148,7 +149,7 @@ func dumpXml(file string) []byte {
 }
 
 func restoreXml(file string, rrd Rrd) {
-	cmd := exec.Command("rrdtool", "restore", "-f", "-", file)
+	cmd := exec.Command(*rrdtool, "restore", "-f", "-", file)
 	stdin, err := cmd.StdinPipe()
 	if err != nil {
 		panic(err)

@@ -11,6 +11,20 @@ Status](https://secure.travis-ci.org/jbuchbinder/rrd-fixpeaks.png)](http://travi
 ```
 rrd-fixpeaks -threshold=80 RRDFILE.rrd
 rrd-fixpeaks -absabove=1e10 RRDFILE.rrd
+
+Usage of ./rrd-fixpeaks:
+  -absabove float
+    	If not -1, every value above this will be removed (default -1)
+  -dryrun
+    	Dry run flag (don't write)
+  -mindiff float
+    	Minimum difference above average
+  -multiplier float
+    	Factor which max must outstrip average (default 2)
+  -rrdtool string
+    	Path to rrdtool executable (default "rrdtool")
+  -threshold float
+    	Threshold percentage above avg above which values should be clipped
 ```
 
 ## BUILDING
